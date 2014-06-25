@@ -3,7 +3,7 @@ img2sms cli tool
 
 A command line tool which takes an image file path and message, uploads 
 the image to Imgur and texts a link with optional message to the given 
-number or the default number setup in `settings.py`.
+number or the default number setup in `settings.py`. Also, if no img is present will just send an SMS with the given message.
 
 ## Setup
 Enter your Imgur client_id and secret in 
@@ -35,7 +35,7 @@ def init():
 Add the following to your .bash_profile or .aliases file:
 
 ```bash
-alias imgtxt="python ~/path/to/main.py"
+alias sms="python ~/path/to/main.py"
 ```
 
 ## Usage

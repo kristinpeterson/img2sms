@@ -51,12 +51,14 @@ def main(argv):
     # Upload image from given path anonymously to imgur and obtain link
     mfactory = factory(config)
     imgur = mfactory.build_api()
-    imgur_req = mfactory.build_request_upload_from_path(path)
-    try:
-        res = imgur.retrieve(imgur_req)
-        img_link = res['link']
-    except expired:
-        print("Expired access token")
+    img_link = ""
+    if path is not None and path is not "":
+        imgur_req = mfactory.build_request_upload_from_path(path)
+        try:
+            res = imgur.retrieve(imgur_req)
+            img_link = res['link']
+        except expired:
+            print("Expired access token")
 
     # Draft and send text message
     number = str('number=%s' % (num))
