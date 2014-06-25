@@ -1,13 +1,15 @@
 img2sms cli tool
 ================================
 
-A command line tool which takes an image file path and message, uploads 
-the image to Imgur and texts a link with optional message to the given 
-number or the default number setup in `settings.py`. Also, if no img is present will just send an SMS with the given message.
+A command line tool which takes an image file path and optional message and 
+number, uploads the image to Imgur and texts a link with optional message 
+to the given number or the default number setup in `settings.py`. 
+If no image is present an SMS with the given message will be sent without an 
+image link.
 
 ## Setup
 Enter your Imgur client_id and secret in 
-img2sms/config.json:
+/img2sms/config.json:
 
 ```json
 {
@@ -22,7 +24,7 @@ img2sms/config.json:
 
 ### Optional Steps
 
-#### Set default recipient mobile number in img2sms/settings.py:
+#### Set default recipient mobile number in /img2sms/settings.py:
 
 ```python
 def init():
@@ -30,12 +32,21 @@ def init():
     num = "enter-default-recipient-mobile-number-here"
 ```
 
-#### OSX - Setup Command Line Alias
+#### Setup Command Line Alias / Macro
 
-Add the following to your .bash_profile or .aliases file:
+##### OSX | Linux
+Add the following to your .bash_profile or .aliases file to create a command
+ line alias for running img2sms:
 
 ```bash
 alias sms="python ~/path/to/main.py"
+```
+
+##### Windows
+Run the following from the command line to create a macro for running img2sms:
+
+```bash
+doskey sms=python C:\absolute\path\to\main.py $*
 ```
 
 ## Usage
@@ -56,8 +67,8 @@ python main.py -p "\\img.file.absolute.path" -m "optional message" -n
 command line.
 
 ## Dependencies
-* python 2 or 3
-* curl
+* Python 2 or 3
+* cURL
 
 
 Should work on Mac OSX, Linux and Windows (although I primarily use it on 

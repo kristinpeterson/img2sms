@@ -4,6 +4,8 @@ from subprocess import call
 from pyimgur.imgur.factory import factory
 
 def main(argv):
+
+    app_root = os.path.split(os.path.abspath(__file__))[0]
     settings.init()
 
     # Assess command line args
@@ -35,8 +37,7 @@ def main(argv):
     # Load imgur config file
     config = None
     try:
-        config_path = os.path.join(os.path.split(os.path.abspath(__file__))[0],
-                                   "config.json")
+        config_path = os.path.join(app_root, "config.json")
         fd = open(config_path, 'r')
     except:
         print("config file [config.json] not found.")
@@ -64,7 +65,7 @@ def main(argv):
     number = str('number=%s' % (num))
     message = str('message=%s %s' % (img_link, msg))
     cmd = ['curl', 'http://textbelt.com/text', '-d', number, '-d', message]
-    print("Sending Message: [" + img_link + " " + msg + "]")
+    print("Sending Message: [" + img_link + " " + msg + "] to " + num)
     call(cmd)
 
 if __name__ == "__main__":
