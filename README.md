@@ -7,7 +7,7 @@ number or the default number setup in `settings.py`. Also, if no img is present 
 
 ## Setup
 Enter your Imgur client_id and secret in 
-img2sms/pyimgur/data/config.json:
+img2sms/config.json:
 
 ```json
 {
@@ -41,7 +41,7 @@ alias sms="python ~/path/to/main.py"
 ## Usage
 From img2sms folder run the following command:
 ```bash
-main.py -p "\\img.file.absolute.path" -m "optional message" -n 
+python main.py -p "\\img.file.absolute.path" -m "optional message" -n 
 "optional phone number"
 ```
 
