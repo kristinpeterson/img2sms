@@ -1,0 +1,6 @@
+.idea
+
+*.pyc
+
+# imgur config file
+img2sms/config.json
